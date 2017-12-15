@@ -1,14 +1,13 @@
 var express = require('express');
 var app = express();
 
+var port = process.env.PORT || 3000;
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
     res.sendFile( __dirname + "/" + "index.html" );
 })
 
-var server = app.listen(3000, function () {
-   var host = server.address().address
-   var port = server.address().port
-   console.log("TreeFinder app listening at http://%s:%s", host, port)
+app.listen(port, function () {
+   console.log("TreeFinder app is running")
 })
